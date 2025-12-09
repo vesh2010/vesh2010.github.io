@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Avesh Mishra — DevOps Engineer</title>
+<title>Avesh Mishra — DevOps Cloud Engineer</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
 
@@ -15,22 +15,26 @@
   --bg: #f5f5f7;
   --text: #0f0f11;
   --muted: #555;
-  --glass: rgba(255,255,255,0.45);
+  --glass: rgba(255,255,255,0.55);
   --border: rgba(255,255,255,0.45);
   --shadow: rgba(0,0,0,0.08);
-  --accent: #c8b9a6;
+  --accent: #c7b9a4;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #111214;
-    --text: #f2f2f2;
+    --bg: #0f0f11;
+    --text: #f1f1f1;
     --muted: #9a9a9a;
-    --glass: rgba(255,255,255,0.1);
-    --border: rgba(255,255,255,0.18);
+    --glass: rgba(255,255,255,0.12);
+    --border: rgba(255,255,255,0.22);
     --shadow: rgba(0,0,0,0.4);
     --accent: #d5c8b5;
   }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -39,58 +43,68 @@ body {
   color: var(--text);
   font-family: "Inter", sans-serif;
   -webkit-font-smoothing: antialiased;
-  scroll-behavior: smooth;
 }
 
-/* ---------- NAVBAR ---------- */
+/* ---------- NAVIGATION ---------- */
 
 nav {
-  position: sticky;
+  position: fixed;
+  left: 0;
   top: 0;
-  backdrop-filter: blur(18px);
+  height: 100vh;
+  width: 220px;
   background: var(--glass);
-  border-bottom: 1px solid var(--border);
-  z-index: 50;
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  padding: 12px 0;
+  backdrop-filter: blur(20px);
+  border-right: 1px solid var(--border);
+  padding: 35px 20px;
+  box-shadow: 10px 0 30px var(--shadow);
+}
+
+nav h3 {
+  margin-bottom: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  opacity: .8;
 }
 
 nav a {
+  display: block;
+  margin-bottom: 14px;
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: var(--text);
   opacity: .7;
-  transition: .3s;
+  transition: .25s;
 }
 
 nav a:hover {
   opacity: 1;
 }
 
-/* ---------- LAYOUT ---------- */
+/* ---------- CONTENT LAYOUT ---------- */
 
 .container {
+  margin-left: 260px;
+  padding: 45px 30px;
   max-width: 1100px;
-  margin: auto;
-  padding: 40px 22px;
 }
+
+/* ---------- GLASS SECTIONS ---------- */
 
 .glass-panel {
   background: var(--glass);
   backdrop-filter: blur(18px);
-  border: 1px solid var(--border);
+  padding: 35px;
   border-radius: 22px;
+  border: 1px solid var(--border);
+  margin-bottom: 45px;
   box-shadow: 0 10px 40px var(--shadow);
-  padding: 30px;
-  margin-bottom: 38px;
   opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s ease;
+  transform: translateY(30px);
+  transition: all .6s ease;
 }
 
-.fade-in.visible {
+.visible {
   opacity: 1 !important;
   transform: translateY(0px) !important;
 }
@@ -99,7 +113,7 @@ nav a:hover {
 
 header {
   text-align: center;
-  margin-bottom: 45px;
+  margin-bottom: 40px;
 }
 
 .profile {
@@ -110,8 +124,8 @@ header {
   background: linear-gradient(135deg,#ffffff,#d3c9bf);
   color: #333;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   font-size: 48px;
   font-weight: 600;
   box-shadow:
@@ -121,64 +135,70 @@ header {
 }
 
 h1 {
-  margin: 25px 0 5px;
-  font-size: 2.9rem;
+  margin-top: 20px;
+  font-size: 2.7rem;
   font-weight: 600;
 }
 
 .subtitle {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   color: var(--muted);
+  margin-bottom: 25px;
 }
 
-/* ---------- CONTACT BUTTONS ---------- */
+/* ---------- CONTACT ---------- */
 
 .contact {
-  margin-top: 20px;
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
-  gap:12px;
+  gap:14px;
 }
 
-.contact a, .contact button {
-  background: var(--glass);
-  border: 1px solid var(--border);
+.contact button,
+.contact a,
+.contact span {
   padding:10px 22px;
   border-radius:14px;
+  background: var(--glass);
+  border:1px solid var(--border);
+  backdrop-filter:blur(12px);
+  font-size:.9rem;
   color:var(--text);
   cursor:pointer;
-  backdrop-filter:blur(10px);
   transition:.25s;
 }
 
+.contact a { text-decoration:none; }
+
 .contact button:hover, .contact a:hover {
-  box-shadow: 0 4px 18px var(--shadow);
+  box-shadow:0 4px 18px var(--shadow);
 }
 
-/* Titles */
+/* ---------- HEADERS ---------- */
 
 section h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
+  font-size: 1.9rem;
   font-weight: 600;
+  margin-bottom: 18px;
 }
 
-/* LISTS */
+/* Experience Content */
 
 .item-title {
   font-size: 1.25rem;
   font-weight: 600;
-  margin-bottom:4px;
+  margin-bottom: 4px;
 }
 
 .item-sub {
   color: var(--muted);
+  margin-bottom: 4px;
 }
 
 .duration {
-  font-size: .9rem;
-  opacity:.6;
+  font-size:.9rem;
+  opacity:.7;
   margin-bottom:10px;
 }
 
@@ -186,38 +206,43 @@ ul {
   padding-left:18px;
 }
 
-ul li {
-  margin-bottom: 8px;
+li {
+  margin-bottom:8px;
 }
 
-/* SKILLS GRID */
+/* Skills */
 
 .skills-grid {
   display:grid;
-  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
-  gap:18px;
+  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
 }
 
 .skill-box {
-  background: rgba(255,255,255,0.08);
+  background:rgba(255,255,255,0.05);
   border-radius:16px;
-  padding:20px;
+  padding:18px;
+}
+
+.skill-title {
+  font-weight:600;
+  margin-bottom:10px;
 }
 
 .tag {
   display:inline-block;
-  padding:8px 14px;
-  background:rgba(0,0,0,0.05);
-  border-radius:50px;
-  margin:5px;
+  padding:7px 14px;
   font-size:.85rem;
+  background:rgba(0,0,0,0.06);
+  border-radius:50px;
+  margin:4px;
 }
 
-/* FOOTER */
+/* Footer */
 
 footer {
   text-align:center;
-  padding: 50px 0 20px;
+  padding:40px 0;
   font-size:.9rem;
   color:var(--muted);
 }
@@ -228,20 +253,23 @@ footer {
 <body>
 
 <nav>
-  <a href="#summary">Summary</a>
-  <a href="#experience">Experience</a>
-  <a href="#projects">Projects</a>
-  <a href="#skills">Skills</a>
-  <a href="#certs">Certs</a>
-  <a href="#education">Education</a>
+<h3>NAVIGATION</h3>
+<a href="#summary">Summary</a>
+<a href="#experience">Experience</a>
+<a href="#projects">Projects</a>
+<a href="#skills">Skills</a>
+<a href="#certs">Certifications</a>
+<a href="#achievements">Achievements</a>
+<a href="#education">Education</a>
 </nav>
+
 
 <div class="container">
 
-<header class="fade-in">
+<header class="fade-target">
   <div class="profile">AM</div>
   <h1>Avesh Mishra</h1>
-  <p class="subtitle">Senior DevOps & Cloud Engineer</p>
+  <p class="subtitle">DevOps Cloud Engineer | AWS & Azure Specialist</p>
   <div class="contact">
     <a href="mailto:Aveshmishra345@gmail.com">Email</a>
     <a href="https://linkedin.com/in/avesh-mishra-04992213b" target="_blank">LinkedIn</a>
@@ -250,126 +278,245 @@ footer {
   </div>
 </header>
 
-<section id="summary" class="glass-panel fade-in">
+
+<section id="summary" class="glass-panel fade-target">
 <h2>Professional Summary</h2>
 <p>
-Experienced DevOps Cloud Engineer with expertise in AWS, Azure, Kubernetes, Terraform, CI/CD automation, observability engineering, and scalable cloud architecture. Proven ability to build high-availability platforms, automate infrastructure, and implement cloud-native deployment pipelines aligned with modern DevOps and SRE practices.
+DevOps Cloud Engineer at Cencora, playing a pivotal role in advancing deployment capabilities by integrating Azure and AWS resources. Skilled in developing and optimizing end-to-end data transformation pipelines and cloud infrastructure to achieve peak efficiency. Expert in implementing CI/CD pipelines and managing cloud-native microservices architecture. Continuously staying updated on emerging cloud technology trends to drive innovation and enhance DevOps operations. A key team member, specializing in designing scalable and resilient solutions aligned with modern DevOps practices.
 </p>
 </section>
 
-<section id="experience" class="fade-in glass-panel">
+
+<section id="experience" class="glass-panel fade-target">
 <h2>Professional Experience</h2>
 
 <div>
-  <div class="item-title">Senior Specialist — DevOps Engineer</div>
-  <div class="item-sub">Cencora PharmaLex — India</div>
-  <div class="duration">2025 — Present</div>
-  <ul>
-    <li>Designed multi-environment CI/CD using GitHub Actions, Ansible, Docker & Terraform.</li>
-    <li>Built Airflow + DBT pipeline improving data reliability and workflow maintainability.</li>
-    <li>Reduced deployment failure margin using automated validation & rollback workflows.</li>
-  </ul>
+<div class="item-title">Senior Specialist – DevOps Engineer</div>
+<div class="item-sub">Cencora PharmaLex – Noida, India</div>
+<div class="duration">July 2025 – Present</div>
+<ul>
+<li>Architected and deployed a multi-environment release framework using GitHub Actions, Docker, Terraform, and Ansible, enabling consistent releases across development, staging, and production with minimal manual intervention.</li>
+<li>Designed and maintained scalable and fault-tolerant data workflows using Apache Airflow and DBT on AWS, significantly improving data reliability, workflow maintainability, and processing throughput.</li>
+<li>Reinforced CI/CD automation with integrated Grafana dashboards, P95/P99 latency tracking, validation gates, and automated rollback workflows, cutting deployment failures and improving reliability across production environments.</li>
+<li>Optimized AWS Step Functions by streamlining execution logic, redesigning state transitions, and tuning resource utilization, leading to a 15 percent reduction in runtime and lower operational costs.</li>
+</ul>
 </div>
+
 <br>
+
 <div>
-  <div class="item-title">System Engineer — DevOps Engineer</div>
-  <div class="item-sub">Tata Consultancy Services</div>
-  <div class="duration">2021 — 2025</div>
-  <ul>
-    <li>Modernized legacy infrastructure to Azure improving release velocity by 40%.</li>
-    <li>Implemented Kubernetes automation improving deployment repeatability and uptime.</li>
-    <li>Built observability stack using Prometheus, Grafana, CloudWatch & Splunk.</li>
-  </ul>
+<div class="item-title">System Engineer – Developer | DevOps Engineer</div>
+<div class="item-sub">Tata Consultancy Services – Noida, India</div>
+<div class="duration">January 2021 – July 2025 (4 years 7 months)</div>
+<ul>
+<li>Led core operational security and DevOps initiatives, increasing infrastructure resilience by 40 percent through proactive monitoring, response automation, and continuous improvement of the threat detection framework.</li>
+<li>Directed the migration of legacy infrastructure to Azure Cloud, including redesigning compute, storage, security, and networking components, reducing operational effort and accelerating delivery cycles by 40 percent.</li>
+<li>Implemented Kubernetes-based deployment automation for microservices, enabling repeatable deployments, improved rollback confidence, and a 25 percent increase in delivery efficiency.</li>
+<li>Achieved 40% uptime improvement for EKS clusters via automated node scaling and upgrades: deployed infrastructure using CloudFormation with VPC, RDS, Route53, Secrets Manager, and CloudWatch.</li>
+<li>Strengthened security posture with Splunk, Grafana, and CloudWatch automation, enabling faster detection, real-time alerting, and significantly shorter incident response cycles.</li>
+</ul>
 </div>
+
 </section>
 
-<section id="projects" class="glass-panel fade-in">
+
+<section id="projects" class="glass-panel fade-target">
 <h2>Featured Projects</h2>
 
+
+<!-- Project 1 -->
 <div>
-  <div class="item-title">Multi-Cloud Automation Platform</div>
-  <div class="item-sub">Terraform | Jenkins | AWS | Azure</div>
-  <ul><li>Unified infra deployment for 200+ resources with automated drift correction.</li></ul>
+<div class="item-title">Multi-Cloud Infrastructure Automation Platform</div>
+<div class="item-sub">Terraform, Ansible, AWS, Azure, Jenkins, GitLab CI/CD</div>
+<ul>
+<li>Built a unified IaC platform managing 200+ cloud resources across AWS and Azure using Terraform modules and Ansible playbooks</li>
+<li>Implemented automated drift detection and remediation reducing manual intervention by 80%</li>
+<li>Integrated cost optimization policies using AWS Cost Explorer and Azure Cost Management APIs</li>
+<li>Achieved 99.9% infrastructure deployment success rate with automated validation and rollback mechanisms</li>
+</ul>
 </div>
 <br>
 
+<!-- Project 2 -->
 <div>
-  <div class="item-title">Kubernetes Microservices GitOps</div>
-  <div class="item-sub">ArgoCD | Helm | Prometheus</div>
-  <ul><li>Automated deployment of 50+ services with canary rollout and observability.</li></ul>
+<div class="item-title">Kubernetes Microservices Deployment Pipeline</div>
+<div class="item-sub">Kubernetes, Docker, Helm, ArgoCD, AWS EKS, Prometheus, Grafana</div>
+<ul>
+<li>Designed and deployed a GitOps-based deployment pipeline for 50+ microservices using ArgoCD and Helm charts</li>
+<li>Implemented auto-scaling with Kubernetes HPA and Cluster Autoscaler reducing costs by 35% during off-peak hours</li>
+<li>Configured comprehensive monitoring stack with Prometheus, Grafana, and ELK for observability across all services</li>
+<li>Set up blue-green and canary deployment strategies reducing deployment risks and downtime to near-zero</li>
+</ul>
 </div>
 <br>
 
+<!-- Project 3 -->
 <div>
-  <div class="item-title">Real-Time Data Pipeline</div>
-  <div class="item-sub">Kafka | Airflow | Redshift | DBT</div>
-  <ul><li>Processed 5M+ daily events improving analytics latency from hours to minutes.</li></ul>
+<div class="item-title">Automated Security Compliance Framework</div>
+<div class="item-sub">AWS Security Hub, Azure Security Center, Terraform, Python, Lambda, CloudWatch</div>
+<ul>
+<li>Developed automated compliance checking framework ensuring CIS benchmarks and organizational security policies</li>
+<li>Created Python-based Lambda functions for real-time security event processing and automated remediation</li>
+<li>Integrated with Slack and PagerDuty for instant security alerts and incident response workflows</li>
+<li>Reduced security compliance audit time from 2 weeks to 2 hours with automated reporting dashboards</li>
+</ul>
+</div>
+<br>
+
+<!-- Project 4 -->
+<div>
+<div class="item-title">High-Availability Multi-Region AWS Architecture</div>
+<div class="item-sub">AWS (EC2, S3, RDS, Route53, CloudFront, Lambda), Terraform, Packer</div>
+<ul>
+<li>Architected and deployed multi-region active-active infrastructure across US-East and EU-West regions</li>
+<li>Implemented cross-region RDS replication and S3 cross-region replication for disaster recovery</li>
+<li>Configured Route53 health checks and failover policies achieving 99.99% availability SLA</li>
+<li>Optimized global content delivery using CloudFront CDN reducing latency by 60% for international users</li>
+</ul>
+</div>
+<br>
+
+<!-- Project 5 -->
+<div>
+<div class="item-title">Real-Time Data Pipeline for Analytics Platform</div>
+<div class="item-sub">Apache Kafka, Apache Spark, AWS Glue, Redshift, Airflow, Python, DBT</div>
+<ul>
+<li>Designed and implemented a real-time streaming data pipeline processing 5M+ events per day using Kafka and Spark Streaming</li>
+<li>Built ETL workflows with AWS Glue and Airflow to orchestrate data ingestion from multiple sources into Redshift</li>
+<li>Implemented DBT for data transformation and modeling, creating reusable data models and improving data quality with automated testing</li>
+<li>Reduced data processing latency from hours to minutes and decreased storage costs by 40% through efficient partitioning and compression strategies</li>
+</ul>
+</div>
+<br>
+
+<!-- Project 6 -->
+<div>
+<div class="item-title">Multi-Cloud Data Warehouse Migration</div>
+<div class="item-sub">Snowflake, Azure Data Factory, PostgreSQL, Python, Terraform, Apache Airflow</div>
+<ul>
+<li>Led migration of on-premise data warehouse (200TB+) to Snowflake with zero data loss and minimal downtime</li>
+<li>Developed automated data validation framework using Python to ensure data integrity across 150+ tables during migration</li>
+<li>Built Azure Data Factory pipelines for incremental data sync and implemented change data capture (CDC) mechanisms</li>
+<li>Optimized query performance by 70% through proper clustering keys, materialized views, and result caching strategies</li>
+<li>Created Airflow DAGs for daily data reconciliation and automated reporting reducing manual validation effort by 90%</li>
+</ul>
 </div>
 
 </section>
 
-<section id="skills" class="fade-in glass-panel">
+
+<section id="skills" class="glass-panel fade-target">
 <h2>Technical Skills</h2>
+
 <div class="skills-grid">
 
-  <div class="skill-box">
-    <div class="item-title">Cloud</div>
-    <span class="tag">AWS</span><span class="tag">Azure</span>
-  </div>
+<div class="skill-box">
+<div class="skill-title">☁️ AWS Services</div>
+<div class="tags">
+<span class="tag">EC2</span><span class="tag">ECS</span><span class="tag">EKS</span><span class="tag">Lambda</span><span class="tag">S3</span><span class="tag">RDS</span><span class="tag">DynamoDB</span><span class="tag">VPC</span><span class="tag">Route53</span><span class="tag">CloudFront</span><span class="tag">IAM</span><span class="tag">CloudFormation</span><span class="tag">CloudWatch</span><span class="tag">SNS/SQS</span><span class="tag">Secrets Manager</span><span class="tag">Step Functions</span><span class="tag">ElastiCache</span><span class="tag">ALB/NLB</span>
+</div>
+</div>
 
-  <div class="skill-box">
-    <div class="item-title">DevOps</div>
-    <span class="tag">GitHub Actions</span><span class="tag">Jenkins</span>
-  </div>
+<div class="skill-box">
+<div class="skill-title">☁️ Azure Services</div>
+<span class="tag">Virtual Machines</span><span class="tag">AKS</span><span class="tag">Azure Functions</span><span class="tag">Blob Storage</span><span class="tag">SQL Database</span><span class="tag">CosmosDB</span><span class="tag">VNet</span><span class="tag">Azure DevOps</span><span class="tag">App Service</span><span class="tag">Key Vault</span><span class="tag">Monitor</span><span class="tag">Container Registry</span><span class="tag">Load Balancer</span><span class="tag">Azure AD</span>
+</div>
 
-  <div class="skill-box">
-    <div class="item-title">Containers</div>
-    <span class="tag">Kubernetes</span><span class="tag">Docker</span><span class="tag">Helm</span>
-  </div>
+<div class="skill-box">
+<div class="skill-title">🔧 DevOps & CI/CD</div>
+<span class="tag">Jenkins</span><span class="tag">GitLab CI/CD</span><span class="tag">GitHub Actions</span><span class="tag">Azure DevOps</span><span class="tag">ArgoCD</span><span class="tag">CircleCI</span><span class="tag">Travis CI</span>
+</div>
 
-  <div class="skill-box">
-    <div class="item-title">IaC</div>
-    <span class="tag">Terraform</span><span class="tag">Ansible</span>
-  </div>
+<div class="skill-box">
+<div class="skill-title">📦 Container & Orchestration</div>
+<span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Helm</span><span class="tag">Docker Compose</span><span class="tag">Podman</span><span class="tag">Kustomize</span>
+</div>
+
+<div class="skill-box">
+<div class="skill-title">🏗️ Infrastructure as Code</div>
+<span class="tag">Terraform</span><span class="tag">Ansible</span><span class="tag">CloudFormation</span><span class="tag">ARM Templates</span><span class="tag">Pulumi</span><span class="tag">Packer</span>
+</div>
+
+<div class="skill-box">
+<div class="skill-title">📊 Monitoring & Logging</div>
+<span class="tag">Prometheus</span><span class="tag">Grafana</span><span class="tag">CloudWatch</span><span class="tag">ELK Stack</span><span class="tag">Splunk</span><span class="tag">Datadog</span><span class="tag">New Relic</span><span class="tag">Loki</span>
+</div>
+
+<div class="skill-box">
+<div class="skill-title">💻 Programming & Scripting</div>
+<span class="tag">Python</span><span class="tag">Bash</span><span class="tag">PowerShell</span><span class="tag">Go</span><span class="tag">YAML</span><span class="tag">JSON</span>
+</div>
+
+<div class="skill-box">
+<div class="skill-title">🔐 Security & Compliance</div>
+<span class="tag">AWS Security Hub</span><span class="tag">Azure Security Center</span><span class="tag">Vault</span><span class="tag">SonarQube</span><span class="tag">Aqua Security</span><span class="tag">Trivy</span>
+</div>
+
+<div class="skill-box">
+<div class="skill-title">🗄️ Version Control & Collaboration</div>
+<span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">GitLab</span><span class="tag">Bitbucket</span><span class="tag">Jira</span><span class="tag">Confluence</span>
+</div>
+
+<div class="skill-box">
+<div class="skill-title">🔄 Data Engineering & Workflow</div>
+<span class="tag">Apache Airflow</span><span class="tag">DBT</span><span class="tag">Apache Kafka</span><span class="tag">Apache Spark</span><span class="tag">Redis</span><span class="tag">MySQL</span><span class="tag">PostgreSQL</span><span class="tag">Snowflake</span><span class="tag">AWS Glue</span><span class="tag">AWS Redshift</span><span class="tag">Azure Data Factory</span><span class="tag">BigQuery</span><span class="tag">ETL/ELT</span><span class="tag">Data Modeling</span>
+</div>
 
 </div>
 </section>
 
-<section id="certs" class="fade-in glass-panel">
+
+<section id="certs" class="glass-panel fade-target">
 <h2>Certifications</h2>
 <ul>
-<li>Azure-900 — Microsoft</li>
-<li>Machine Learning Master — Coding Blocks</li>
-<li>Fundamentals of Machine Learning — Microsoft Partner</li>
+<li>Azure-900 (Azure Fundamentals) — Microsoft | January 2022</li>
+<li>Machine Learning Master Course — Coding Blocks | December 2020</li>
+<li>Fundamental of Machine Learning — Microsoft Partner | August 2019</li>
 </ul>
 </section>
 
-<section id="education" class="fade-in glass-panel">
-<h2>Education</h2>
-<div class="item-title">Bachelor of Computer Science</div>
-<div class="item-sub">GGSIPU — 2016-2020</div>
+
+<section id="achievements" class="glass-panel fade-target">
+<h2>Key Achievements</h2>
+<ul>
+<li>Reduced deployment time by 60% by developing Bash automation scripts for Kubernetes pod scaling, health checks, and rollback procedures across multi-cluster environments</li>
+<li>Effectively configured the lifecycle of S3 bucket objects, optimizing storage costs and monitoring efficient management of data throughout its lifecycle</li>
+<li>Achieved 40% infrastructure resilience improvement through proactive monitoring, automated response systems, and continuous threat detection enhancements</li>
+<li>Successfully migrated 100+ applications to cloud infrastructure with zero downtime, improving scalability and reducing operational costs by 45%</li>
+</ul>
 </section>
 
-<footer>© 2025 — Built by Avesh Mishra</footer>
+
+<section id="education" class="glass-panel fade-target">
+<h2>Education</h2>
+<div class="item-title">Bachelor of Technology - Computer Science</div>
+<div class="item-sub">Guru Gobind Singh Indraprastha University</div>
+<div class="duration">August 2016 - September 2020</div>
+</section>
+
+
+<footer>© 2025 — Designed by Avesh Mishra</footer>
 
 </div>
+
 
 <script>
 function copyPhone(){
   navigator.clipboard.writeText("+919873108945");
-  alert("Phone number copied.");
+  alert("Phone number copied 📋");
 }
 
-/* Fade-in animation Observer */
-const elements = document.querySelectorAll(".fade-in");
-const io = new IntersectionObserver((entries)=>{
+const observer = new IntersectionObserver((entries)=>{
   entries.forEach(entry=>{
     if(entry.isIntersecting){
       entry.target.classList.add("visible");
     }
   });
 });
-elements.forEach(el => io.observe(el));
+
+document.querySelectorAll(".fade-target, .glass-panel").forEach(section=>{
+  observer.observe(section);
+});
 </script>
 
 </body>
