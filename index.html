@@ -1,323 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Avesh Mishra — DevOps Cloud Engineer</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avesh Mishra - DevOps Cloud Engineer</title>
+  <meta name="description" content="Senior DevOps Cloud Engineer | AWS & Azure | Kubernetes | Terraform | CI/CD">
+  
+  <!-- Google Analytics – replace G-XXXXXXXXXX with your real ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
-
-<style>
-
-/* ---------- CORE THEME ---------- */
-
-:root {
-  --bg: #f5f5f7;
-  --text: #0f0f11;
-  --muted: #555;
-  --glass: rgba(255,255,255,0.55);
-  --border: rgba(255,255,255,0.45);
-  --shadow: rgba(0,0,0,0.08);
-  --accent: #c7b9a4;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0f0f11;
-    --text: #f1f1f1;
-    --muted: #9a9a9a;
-    --glass: rgba(255,255,255,0.12);
-    --border: rgba(255,255,255,0.22);
-    --shadow: rgba(0,0,0,0.4);
-    --accent: #d5c8b5;
-  }
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  font-family: "Inter", sans-serif;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* ---------- NAVIGATION ---------- */
-
-nav {
-  position: fixed;
-  left: 0;
-  top: 0;
-  height: 100vh;
-  width: 220px;
-  background: var(--glass);
-  backdrop-filter: blur(20px);
-  border-right: 1px solid var(--border);
-  padding: 35px 20px;
-  box-shadow: 10px 0 30px var(--shadow);
-}
-
-nav h3 {
-  margin-bottom: 25px;
-  font-size: 1rem;
-  font-weight: 600;
-  opacity: .8;
-}
-
-nav a {
-  display: block;
-  margin-bottom: 14px;
-  text-decoration: none;
-  font-size: 0.95rem;
-  color: var(--text);
-  opacity: .7;
-  transition: .25s;
-}
-
-nav a:hover {
-  opacity: 1;
-}
-
-/* ---------- CONTENT LAYOUT ---------- */
-
-.container {
-  margin-left: 260px;
-  padding: 45px 30px;
-  max-width: 1100px;
-}
-
-/* ---------- GLASS SECTIONS ---------- */
-
-.glass-panel {
-  background: var(--glass);
-  backdrop-filter: blur(18px);
-  padding: 35px;
-  border-radius: 22px;
-  border: 1px solid var(--border);
-  margin-bottom: 45px;
-  box-shadow: 0 10px 40px var(--shadow);
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all .6s ease;
-}
-
-.visible {
-  opacity: 1 !important;
-  transform: translateY(0px) !important;
-}
-
-/* ---------- HEADER ---------- */
-
-header {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.profile {
-  width: 150px;
-  height: 150px;
-  margin: auto;
-  border-radius: 50%;
-  background: linear-gradient(135deg,#ffffff,#d3c9bf);
-  color: #333;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 48px;
-  font-weight: 600;
-  box-shadow:
-      inset -5px -5px 15px rgba(255,255,255,0.7),
-      inset 5px 5px 18px rgba(0,0,0,0.08),
-      0 14px 40px var(--shadow);
-}
-
-h1 {
-  margin-top: 20px;
-  font-size: 2.7rem;
-  font-weight: 600;
-}
-
-.subtitle {
-  font-size: 1.15rem;
-  color: var(--muted);
-  margin-bottom: 25px;
-}
-
-/* ---------- CONTACT ---------- */
-
-.contact {
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:14px;
-}
-
-.contact button,
-.contact a,
-.contact span {
-  padding:10px 22px;
-  border-radius:14px;
-  background: var(--glass);
-  border:1px solid var(--border);
-  backdrop-filter:blur(12px);
-  font-size:.9rem;
-  color:var(--text);
-  cursor:pointer;
-  transition:.25s;
-}
-
-.contact a { text-decoration:none; }
-
-.contact button:hover, .contact a:hover {
-  box-shadow:0 4px 18px var(--shadow);
-}
-
-/* ---------- HEADERS ---------- */
-
-section h2 {
-  font-size: 1.9rem;
-  font-weight: 600;
-  margin-bottom: 18px;
-}
-
-/* Experience Content */
-
-.item-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 4px;
-}
-
-.item-sub {
-  color: var(--muted);
-  margin-bottom: 4px;
-}
-
-.duration {
-  font-size:.9rem;
-  opacity:.7;
-  margin-bottom:10px;
-}
-
-ul {
-  padding-left:18px;
-}
-
-li {
-  margin-bottom:8px;
-}
-
-/* Skills */
-
-.skills-grid {
-  display:grid;
-  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-  gap:20px;
-}
-
-.skill-box {
-  background:rgba(255,255,255,0.05);
-  border-radius:16px;
-  padding:18px;
-}
-
-.skill-title {
-  font-weight:600;
-  margin-bottom:10px;
-}
-
-.tag {
-  display:inline-block;
-  padding:7px 14px;
-  font-size:.85rem;
-  background:rgba(0,0,0,0.06);
-  border-radius:50px;
-  margin:4px;
-}
-
-/* Footer */
-
-footer {
-  text-align:center;
-  padding:40px 0;
-  font-size:.9rem;
-  color:var(--muted);
-}
-
-</style>
+  <style>
+    :root{--bg:#121212;--surface:#1e1e1e;--card:#252525;--beige:#d7ccc8;--beige-light:#b0a295;--text:#e8e8e8;--text-muted:#b0b0b0;--accent:#8c7a6b;--border:#333333}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+    .container{max-width:1100px;margin:0 auto;padding:30px 20px;background:var(--surface);min-height:100vh}
+    header{text-align:center;padding:80px 20px 60px;border-bottom:1px solid var(--border);margin-bottom:60px;position:relative}
+    .profile-img{width:140px;height:140px;border-radius:50%;background:var(--accent);margin:0 auto 30px;display:flex;align-items:center;justify-content:center;font-size:52px;font-weight:bold;color:#121212}
+    h1{font-size:3em;color:var(--beige);margin-bottom:10px}
+    .tagline{font-size:1.4em;color:var(--beige-light);margin-bottom:35px}
+    .contact-info{display:flex;justify-content:center;gap:22px;flex-wrap:wrap;font-size:1.05em;margin-top:20px}
+    .contact-info a,.contact-info span{color:var(--beige);text-decoration:none;padding:12px 24px;border:1px solid var(--border);border-radius:8px;transition:all .3s}
+    .contact-info a:hover,.copy-phone:hover{background:rgba(215,204,200,.12);border-color:var(--accent)}
+    .copy-phone{cursor:pointer;position:relative}
+    .copied-tooltip{position:absolute;top:-40px;left:50%;transform:translateX(-50%);background:var(--accent);color:#121212;padding:8px 14px;border-radius:6px;font-size:.85em;font-weight:bold;opacity:0;pointer-events:none;transition:opacity .3s}
+    .copied-tooltip.show{opacity:1}
+    .resume-btn{position:absolute;top:30px;right:30px;background:var(--accent);color:#121212;padding:10px 20px;border-radius:6px;text-decoration:none;font-weight:bold}
+    .resume-btn:hover{background:#a0897a}
+    h2{font-size:2em;color:var(--beige);margin-bottom:28px;padding-bottom:12px;border-bottom:3px solid var(--accent);display:inline-block}
+    section{margin-bottom:80px}
+    .summary{font-size:1.15em;color:var(--text-muted);max-width:900px;margin:0 auto 40px;text-align:justify}
+    .experience-item,.project-item,.education-item{background:var(--card);padding:30px;border-radius:12px;border-left:5px solid var(--accent);margin-bottom:35px;transition:transform .2s}
+    .experience-item:hover,.project-item:hover{transform:translateY(-4px)}
+    .job-title,.project-title{font-size:1.5em;color:var(--beige);margin-bottom:8px}
+    .company,.project-tech{color:var(--beige-light);font-size:1.15em;margin-bottom:8px}
+    .duration{color:#888;font-style:italic;margin-bottom:18px;font-size:.98em}
+    ul{margin:15px 0 0 25px}
+    li{margin-bottom:12px;color:var(--text)}
+    .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:25px;margin-top:35px}
+    .skill-category{background:var(--card);padding:25px;border-radius:12px;border:1px solid var(--border)}
+    .skill-category h3{color:var(--accent);margin-bottom:18px;font-size:1.25em}
+    .skill-tags{display:flex;flex-wrap:wrap;gap:10px}
+    .skill-tag{background:#333;color:var(--text);padding:7px 15px;border-radius:25px;font-size:.92em}
+    .certifications-grid,.achievements-grid{display:grid;gap:22px}
+    .cert-item,.achievement-item{background:var(--card);padding:25px;border-radius:12px;border-left:5px solid var(--accent)}
+    .cert-name{color:var(--beige);font-weight:bold;font-size:1.1em}
+    footer{text-align:center;padding:60px 20px 40px;color:#666;border-top:1px solid var(--border);margin-top:100px;font-size:.95em}
+    @media(max-width:768px){.contact-info{flex-direction:column;align-items:center}.skills-grid{grid-template-columns:1fr}.resume-btn{position:static;margin-top:20px;display:inline-block}}
+  </style>
 </head>
-
 <body>
+  <div class="container">
+    <header>
+      <div class="profile-img">AM</div>
+      <h1>Avesh Mishra</h1>
+      <p class="tagline">DevOps Cloud Engineer | AWS & Azure Specialist</p>
+      <div class="contact-info">
+        <a href="mailto:Aveshmishra345@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/avesh-mishra-04992213b/" target="_blank">LinkedIn</a>
+        <span class="copy-phone" onclick="copyPhone()">+91 9873108945<span class="copied-tooltip" id="tooltip">Copied!</span></span>
+        <span>Noida, India</span>
+      </div>
+      <a href="Avesh_Mishra_Resume.pdf" class="resume-btn" target="_blank">Download Resume (PDF)</a>
+    </header>
 
-<nav>
-<h3>NAVIGATION</h3>
-<a href="#summary">Summary</a>
-<a href="#experience">Experience</a>
-<a href="#projects">Projects</a>
-<a href="#skills">Skills</a>
-<a href="#certs">Certifications</a>
-<a href="#achievements">Achievements</a>
-<a href="#education">Education</a>
-</nav>
+    <section id="summary">
+      <h2>Professional Summary</h2>
+      <p class="summary">DevOps Cloud Engineer at Cencora, playing a pivotal role in advancing deployment capabilities by integrating Azure and AWS resources. Expert in CI/CD pipelines, Kubernetes, Terraform, Airflow, and building resilient, cost-optimized cloud infrastructure.</p>
+    </section>
 
+    <section id="experience">
+      <h2>Professional Experience</h2>
+      <div class="experience-item">
+        <div class="job-title">Senior Specialist – DevOps Engineer</div>
+        <div class="company">Cencora PharmaLex – Noida, India</div>
+        <div class="duration">Jul 2025 – Present</div>
+        <ul>
+          <li>Architected and deployed a multi-environment release framework using GitHub Actions, Docker, Terraform, and Ansible, enabling consistent releases across development, staging, and production with minimal manual intervention.</li>
+          <li>Designed and maintained scalable and fault-tolerant data workflows using Apache Airflow and DBT on AWS, significantly improving data reliability, workflow maintainability, and processing throughput.</li>
+          <li>Reinforced CI/CD automation with integrated Grafana dashboards, P95/P99 latency tracking, validation gates, and automated rollback workflows, cutting deployment failures and improving reliability across production environments.</li>
+          <li>Optimized AWS Step Functions by streamlining execution logic, redesigning state transitions, and tuning resource utilization, leading to a 15 percent reduction in runtime and lower operational costs.</li>
+        </ul>
+      </div>
 
-<div class="container">
-
-<header class="fade-target">
-  <div class="profile">AM</div>
-  <h1>Avesh Mishra</h1>
-  <p class="subtitle">DevOps Cloud Engineer | AWS & Azure Specialist</p>
-  <div class="contact">
-    <a href="mailto:Aveshmishra345@gmail.com">Email</a>
-    <a href="https://linkedin.com/in/avesh-mishra-04992213b" target="_blank">LinkedIn</a>
-    <button onclick="copyPhone()">📞 Copy Phone</button>
-    <span>Noida, India</span>
-  </div>
-</header>
-
-
-<section id="summary" class="glass-panel fade-target">
-<h2>Professional Summary</h2>
-<p>
-DevOps Cloud Engineer at Cencora, playing a pivotal role in advancing deployment capabilities by integrating Azure and AWS resources. Skilled in developing and optimizing end-to-end data transformation pipelines and cloud infrastructure to achieve peak efficiency. Expert in implementing CI/CD pipelines and managing cloud-native microservices architecture. Continuously staying updated on emerging cloud technology trends to drive innovation and enhance DevOps operations. A key team member, specializing in designing scalable and resilient solutions aligned with modern DevOps practices.
-</p>
-</section>
-
-
-<section id="experience" class="glass-panel fade-target">
-<h2>Professional Experience</h2>
-
-<div>
-<div class="item-title">Senior Specialist – DevOps Engineer</div>
-<div class="item-sub">Cencora PharmaLex – Noida, India</div>
-<div class="duration">July 2025 – Present</div>
-<ul>
-<li>Architected and deployed a multi-environment release framework using GitHub Actions, Docker, Terraform, and Ansible, enabling consistent releases across development, staging, and production with minimal manual intervention.</li>
-<li>Designed and maintained scalable and fault-tolerant data workflows using Apache Airflow and DBT on AWS, significantly improving data reliability, workflow maintainability, and processing throughput.</li>
-<li>Reinforced CI/CD automation with integrated Grafana dashboards, P95/P99 latency tracking, validation gates, and automated rollback workflows, cutting deployment failures and improving reliability across production environments.</li>
-<li>Optimized AWS Step Functions by streamlining execution logic, redesigning state transitions, and tuning resource utilization, leading to a 15 percent reduction in runtime and lower operational costs.</li>
-</ul>
-</div>
-
-<br>
-
-<div>
-<div class="item-title">System Engineer – Developer | DevOps Engineer</div>
-<div class="item-sub">Tata Consultancy Services – Noida, India</div>
-<div class="duration">January 2021 – July 2025 (4 years 7 months)</div>
-<ul>
-<li>Led core operational security and DevOps initiatives, increasing infrastructure resilience by 40 percent through proactive monitoring, response automation, and continuous improvement of the threat detection framework.</li>
-<li>Directed the migration of legacy infrastructure to Azure Cloud, including redesigning compute, storage, security, and networking components, reducing operational effort and accelerating delivery cycles by 40 percent.</li>
-<li>Implemented Kubernetes-based deployment automation for microservices, enabling repeatable deployments, improved rollback confidence, and a 25 percent increase in delivery efficiency.</li>
-<li>Achieved 40% uptime improvement for EKS clusters via automated node scaling and upgrades: deployed infrastructure using CloudFormation with VPC, RDS, Route53, Secrets Manager, and CloudWatch.</li>
-<li>Strengthened security posture with Splunk, Grafana, and CloudWatch automation, enabling faster detection, real-time alerting, and significantly shorter incident response cycles.</li>
-</ul>
-</div>
-
-</section>
+      <div class="experience-item">
+        <div class="job-title">System Engineer – Developer | DevOps Engineer</div>
+        <div class="company">Tata Consultancy Services – Noida, India</div>
+        <div class="duration">Jan 2021 – Jul 2025 (4 years 7 months)</div>
+        <ul>
+          <li>Led core operational security and DevOps initiatives, increasing infrastructure resilience by 40 percent through proactive monitoring, response automation, and continuous improvement of the threat detection framework.</li>
+          <li>Directed the migration of legacy infrastructure to Azure Cloud, including redesigning compute, storage, security, and networking components, reducing operational effort and accelerating delivery cycles by 40 percent.</li>
+          <li>Implemented Kubernetes-based deployment automation for microservices, enabling repeatable deployments, improved rollback confidence, and a 25 percent increase in delivery efficiency.</li>
+          <li>Achieved 40% uptime improvement for EKS clusters via automated node scaling and upgrades: deployed infrastructure using CloudFormation with VPC, RDS, Route53, Secrets Manager, and CloudWatch.</li>
+          <li>Strengthened security posture with Splunk, Grafana, and CloudWatch automation, enabling faster detection, real-time alerting, and significantly shorter incident response cycles.</li>
+        </ul>
+      </div>
+    </section>
 
 
 <section id="projects" class="glass-panel fade-target">
