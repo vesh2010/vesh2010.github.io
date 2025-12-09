@@ -1,304 +1,375 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Avesh Mishra — DevOps Cloud Engineer</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Avesh Mishra — DevOps Engineer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
 
 <style>
+
+/* ---------- CORE THEME ---------- */
+
 :root {
   --bg: #f5f5f7;
-  --text: #111;
-  --subtle: #666;
-  --accent: #8f8f92;
-  --panel: rgba(255,255,255,0.45);
-  --border: rgba(255,255,255,0.55);
+  --text: #0f0f11;
+  --muted: #555;
+  --glass: rgba(255,255,255,0.45);
+  --border: rgba(255,255,255,0.45);
   --shadow: rgba(0,0,0,0.08);
+  --accent: #c8b9a6;
 }
 
-/* Auto Dark Mode */
-@media(prefers-color-scheme: dark) {
-:root {
-  --bg: #101113;
-  --text: #f1f1f1;
-  --subtle: #a0a0a0;
-  --panel: rgba(255,255,255,0.12);
-  --border: rgba(255,255,255,0.22);
-  --shadow: rgba(0,0,0,0.35);
-}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111214;
+    --text: #f2f2f2;
+    --muted: #9a9a9a;
+    --glass: rgba(255,255,255,0.1);
+    --border: rgba(255,255,255,0.18);
+    --shadow: rgba(0,0,0,0.4);
+    --accent: #d5c8b5;
+  }
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro", "Segoe UI", sans-serif;
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  line-height: 1.6;
+  font-family: "Inter", sans-serif;
   -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
 }
+
+/* ---------- NAVBAR ---------- */
+
+nav {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(18px);
+  background: var(--glass);
+  border-bottom: 1px solid var(--border);
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  padding: 12px 0;
+}
+
+nav a {
+  text-decoration: none;
+  font-size: 0.9rem;
+  color: var(--text);
+  opacity: .7;
+  transition: .3s;
+}
+
+nav a:hover {
+  opacity: 1;
+}
+
+/* ---------- LAYOUT ---------- */
 
 .container {
   max-width: 1100px;
   margin: auto;
-  padding: 50px 25px;
+  padding: 40px 22px;
 }
 
-/* ---------- GLASS UI ---------- */
-.glass {
-  background: var(--panel);
+.glass-panel {
+  background: var(--glass);
   backdrop-filter: blur(18px);
   border: 1px solid var(--border);
   border-radius: 22px;
-  padding: 28px;
-  margin-bottom: 35px;
-  box-shadow: 0 8px 30px var(--shadow);
-  transition: transform .25s, box-shadow .25s;
+  box-shadow: 0 10px 40px var(--shadow);
+  padding: 30px;
+  margin-bottom: 38px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
 }
 
-.glass:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+.fade-in.visible {
+  opacity: 1 !important;
+  transform: translateY(0px) !important;
 }
 
-/* -------- HEADER -------- */
+/* ---------- HEADER ---------- */
+
 header {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 45px;
 }
 
 .profile {
-  width: 145px;
-  height: 145px;
+  width: 150px;
+  height: 150px;
   margin: auto;
   border-radius: 50%;
-  background: linear-gradient(145deg,#ffffff,#d9d9d9);
+  background: linear-gradient(135deg,#ffffff,#d3c9bf);
+  color: #333;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   font-size: 48px;
   font-weight: 600;
-  color:#333;
-  box-shadow: inset 3px 3px 8px rgba(0,0,0,0.1),
-              inset -3px -3px 8px rgba(255,255,255,0.6),
-              0 10px 30px var(--shadow);
+  box-shadow:
+      inset -5px -5px 15px rgba(255,255,255,0.7),
+      inset 5px 5px 18px rgba(0,0,0,0.08),
+      0 14px 40px var(--shadow);
 }
 
 h1 {
-  font-size: 3rem;
+  margin: 25px 0 5px;
+  font-size: 2.9rem;
   font-weight: 600;
-  margin-top: 25px;
 }
 
 .subtitle {
-  font-size: 1.25rem;
-  color: var(--subtle);
+  font-size: 1.2rem;
+  color: var(--muted);
 }
 
-/* ---------- CONTACT ---------- */
+/* ---------- CONTACT BUTTONS ---------- */
+
 .contact {
-  margin-top: 25px;
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
+  margin-top: 20px;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:12px;
 }
 
-.contact button, .contact a {
-  background: var(--panel);
-  backdrop-filter: blur(12px);
-  padding: 10px 22px;
-  border-radius: 14px;
+.contact a, .contact button {
+  background: var(--glass);
   border: 1px solid var(--border);
-  font-size: .95rem;
-  color: var(--text);
-  cursor: pointer;
-  transition: 0.25s;
-  text-decoration:none;
+  padding:10px 22px;
+  border-radius:14px;
+  color:var(--text);
+  cursor:pointer;
+  backdrop-filter:blur(10px);
+  transition:.25s;
 }
 
-.contact button:hover, 
-.contact a:hover {
+.contact button:hover, .contact a:hover {
   box-shadow: 0 4px 18px var(--shadow);
 }
 
-/* ---------- HEADERS ---------- */
+/* Titles */
+
 section h2 {
   font-size: 2rem;
+  margin-bottom: 20px;
   font-weight: 600;
-  margin: 40px 0 18px;
 }
 
+/* LISTS */
+
 .item-title {
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   font-weight: 600;
-  margin-bottom: 5px;
+  margin-bottom:4px;
 }
 
 .item-sub {
-  color: var(--subtle);
-  font-size: 1.05rem;
+  color: var(--muted);
 }
 
 .duration {
   font-size: .9rem;
-  opacity: .65;
-  margin-bottom: 12px;
+  opacity:.6;
+  margin-bottom:10px;
 }
 
-ul { padding-left: 20px; }
-li { margin-bottom: 8px; }
+ul {
+  padding-left:18px;
+}
 
-/* Skills Grid */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-  gap: 20px;
+ul li {
+  margin-bottom: 8px;
+}
+
+/* SKILLS GRID */
+
+.skills-grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+  gap:18px;
+}
+
+.skill-box {
+  background: rgba(255,255,255,0.08);
+  border-radius:16px;
+  padding:20px;
 }
 
 .tag {
   display:inline-block;
-  background:#00000010;
-  padding:6px 14px;
+  padding:8px 14px;
+  background:rgba(0,0,0,0.05);
   border-radius:50px;
   margin:5px;
-  font-size:0.9rem;
+  font-size:.85rem;
 }
 
-/* Footer */
+/* FOOTER */
+
 footer {
-  margin: 80px 0 20px;
-  text-align: center;
-  font-size: .9rem;
-  color: var(--subtle);
+  text-align:center;
+  padding: 50px 0 20px;
+  font-size:.9rem;
+  color:var(--muted);
 }
+
 </style>
 </head>
 
 <body>
 
+<nav>
+  <a href="#summary">Summary</a>
+  <a href="#experience">Experience</a>
+  <a href="#projects">Projects</a>
+  <a href="#skills">Skills</a>
+  <a href="#certs">Certs</a>
+  <a href="#education">Education</a>
+</nav>
+
 <div class="container">
 
-<header>
+<header class="fade-in">
   <div class="profile">AM</div>
   <h1>Avesh Mishra</h1>
-  <p class="subtitle">DevOps & Cloud Engineer — AWS | Azure | Kubernetes | Terraform</p>
-  
+  <p class="subtitle">Senior DevOps & Cloud Engineer</p>
   <div class="contact">
     <a href="mailto:Aveshmishra345@gmail.com">Email</a>
     <a href="https://linkedin.com/in/avesh-mishra-04992213b" target="_blank">LinkedIn</a>
-    <button onclick="copy()">📞 +91 9873108945</button>
+    <button onclick="copyPhone()">📞 Copy Phone</button>
     <span>Noida, India</span>
   </div>
 </header>
 
-<!-- SUMMARY -->
-<section>
-<h2>Summary</h2>
-<div class="glass">
-  Experienced DevOps and Cloud Engineer specializing in AWS, Azure, infrastructure automation, CI/CD pipelines, Kubernetes orchestration, observability engineering, and scalable cloud architecture. Proven track record building enterprise-grade pipelines, automated cloud infra, and improving reliability through monitoring, automation, and modernization.
-</div>
+<section id="summary" class="glass-panel fade-in">
+<h2>Professional Summary</h2>
+<p>
+Experienced DevOps Cloud Engineer with expertise in AWS, Azure, Kubernetes, Terraform, CI/CD automation, observability engineering, and scalable cloud architecture. Proven ability to build high-availability platforms, automate infrastructure, and implement cloud-native deployment pipelines aligned with modern DevOps and SRE practices.
+</p>
 </section>
 
-<!-- EXPERIENCE -->
-<section>
+<section id="experience" class="fade-in glass-panel">
 <h2>Professional Experience</h2>
 
-<div class="glass">
+<div>
   <div class="item-title">Senior Specialist — DevOps Engineer</div>
-  <div class="item-sub">Cencora PharmaLex — Noida, India</div>
+  <div class="item-sub">Cencora PharmaLex — India</div>
   <div class="duration">2025 — Present</div>
   <ul>
-    <li>Architected multi-stage CI/CD frameworks using GitHub Actions, Terraform, Docker, and Ansible.</li>
-    <li>Built scalable data orchestration workflows using Airflow and DBT.</li>
-    <li>Integrated reliability guardrails: P95 latency tracking, rollback gates, alerting workflows.</li>
-    <li>Optimized AWS Step Functions reducing runtime by 15% and execution cost.</li>
+    <li>Designed multi-environment CI/CD using GitHub Actions, Ansible, Docker & Terraform.</li>
+    <li>Built Airflow + DBT pipeline improving data reliability and workflow maintainability.</li>
+    <li>Reduced deployment failure margin using automated validation & rollback workflows.</li>
   </ul>
 </div>
-
-<div class="glass">
+<br>
+<div>
   <div class="item-title">System Engineer — DevOps Engineer</div>
-  <div class="item-sub">Tata Consultancy Services — Noida, India</div>
+  <div class="item-sub">Tata Consultancy Services</div>
   <div class="duration">2021 — 2025</div>
   <ul>
-    <li>Led cloud modernization, improving delivery velocity and reducing downtime.</li>
-    <li>Implemented Kubernetes deployment automation improving efficiency by 25%.</li>
-    <li>Configured observability stack using Prometheus, Grafana, Splunk, and CloudWatch.</li>
-    <li>Automated scaling and upgrade workflows improving uptime by 40%.</li>
+    <li>Modernized legacy infrastructure to Azure improving release velocity by 40%.</li>
+    <li>Implemented Kubernetes automation improving deployment repeatability and uptime.</li>
+    <li>Built observability stack using Prometheus, Grafana, CloudWatch & Splunk.</li>
   </ul>
 </div>
-
 </section>
 
-<!-- PROJECTS (trimmed for layout) -->
-<section>
+<section id="projects" class="glass-panel fade-in">
 <h2>Featured Projects</h2>
 
-<div class="glass">
-  <div class="item-title">Multi-Cloud Infrastructure Automation Platform</div>
-  <div class="item-sub">Terraform | AWS | Azure | Jenkins</div>
-  <ul>
-    <li>Unified infra for 200+ cloud resources using reusable Terraform modules.</li>
-    <li>Automated drift detection and rollback workflows.</li>
-  </ul>
+<div>
+  <div class="item-title">Multi-Cloud Automation Platform</div>
+  <div class="item-sub">Terraform | Jenkins | AWS | Azure</div>
+  <ul><li>Unified infra deployment for 200+ resources with automated drift correction.</li></ul>
+</div>
+<br>
+
+<div>
+  <div class="item-title">Kubernetes Microservices GitOps</div>
+  <div class="item-sub">ArgoCD | Helm | Prometheus</div>
+  <ul><li>Automated deployment of 50+ services with canary rollout and observability.</li></ul>
+</div>
+<br>
+
+<div>
+  <div class="item-title">Real-Time Data Pipeline</div>
+  <div class="item-sub">Kafka | Airflow | Redshift | DBT</div>
+  <ul><li>Processed 5M+ daily events improving analytics latency from hours to minutes.</li></ul>
 </div>
 
-<div class="glass">
-  <div class="item-title">Kubernetes GitOps Delivery Pipeline</div>
-  <div class="item-sub">ArgoCD | Helm | AWS EKS | Prometheus</div>
-  <ul>
-    <li>Deployed 50+ microservices with GitOps automation and canary rollouts.</li>
-  </ul>
-</div>
-
-<!-- (You can repeat with all remaining projects — structure is ready.) -->
 </section>
 
-<!-- SKILLS -->
-<section>
-<h2>Skills</h2>
-<div class="glass">
-<div class="grid">
+<section id="skills" class="fade-in glass-panel">
+<h2>Technical Skills</h2>
+<div class="skills-grid">
 
-<div>
-  <div class="item-title">AWS</div>
-  <div class="tag">EC2</div><div class="tag">S3</div><div class="tag">EKS</div><div class="tag">Lambda</div>
-</div>
+  <div class="skill-box">
+    <div class="item-title">Cloud</div>
+    <span class="tag">AWS</span><span class="tag">Azure</span>
+  </div>
 
-<div>
-  <div class="item-title">Azure</div>
-  <div class="tag">AKS</div><div class="tag">ADF</div><div class="tag">Azure DevOps</div>
-</div>
+  <div class="skill-box">
+    <div class="item-title">DevOps</div>
+    <span class="tag">GitHub Actions</span><span class="tag">Jenkins</span>
+  </div>
 
-<div>
-  <div class="item-title">CI/CD</div>
-  <div class="tag">GitHub Actions</div><div class="tag">Jenkins</div><div class="tag">GitLab CI</div>
-</div>
+  <div class="skill-box">
+    <div class="item-title">Containers</div>
+    <span class="tag">Kubernetes</span><span class="tag">Docker</span><span class="tag">Helm</span>
+  </div>
 
-<div>
-  <div class="item-title">Infrastructure</div>
-  <div class="tag">Terraform</div><div class="tag">Ansible</div><div class="tag">Helm</div>
-</div>
+  <div class="skill-box">
+    <div class="item-title">IaC</div>
+    <span class="tag">Terraform</span><span class="tag">Ansible</span>
+  </div>
 
-</div>
 </div>
 </section>
 
-<section>
+<section id="certs" class="fade-in glass-panel">
+<h2>Certifications</h2>
+<ul>
+<li>Azure-900 — Microsoft</li>
+<li>Machine Learning Master — Coding Blocks</li>
+<li>Fundamentals of Machine Learning — Microsoft Partner</li>
+</ul>
+</section>
+
+<section id="education" class="fade-in glass-panel">
 <h2>Education</h2>
-<div class="glass">
-  <div class="item-title">B.Tech — Computer Science</div>
-  <div class="item-sub">GGSIPU — 2016–2020</div>
-</div>
+<div class="item-title">Bachelor of Computer Science</div>
+<div class="item-sub">GGSIPU — 2016-2020</div>
 </section>
 
-<footer>© 2025 — Designed by Avesh Mishra</footer>
+<footer>© 2025 — Built by Avesh Mishra</footer>
+
 </div>
 
 <script>
-function copy(){
+function copyPhone(){
   navigator.clipboard.writeText("+919873108945");
-  alert("Copied!");
+  alert("Phone number copied.");
 }
+
+/* Fade-in animation Observer */
+const elements = document.querySelectorAll(".fade-in");
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("visible");
+    }
+  });
+});
+elements.forEach(el => io.observe(el));
 </script>
 
 </body>
